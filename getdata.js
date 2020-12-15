@@ -19,7 +19,7 @@ const getData=()=>{
     (async()=>{
 
         var Browser =await puppeteer.launch({
-            headless:false,
+            headless:true,
             args: [
                 '--enable-features=NetworkService',
                 '--no-sandbox',
