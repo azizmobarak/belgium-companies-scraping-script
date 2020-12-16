@@ -37,14 +37,16 @@ const getPagesData=async(array,page)=>{
     
      
        const Result =  await page.evaluate(()=>{
-          var tele =document.querySelector('.tel>span')!=null ? document.querySelector('.tel>span').textContent : "not exist";
-          var brand =document.querySelector('.org>a')!=null ? document.querySelector('.org>a').textContent.trim() : "not exist";
-          var email = document.querySelector('.detail-btn-email')!=null ? document.querySelector(".detail-btn-email").href.substring(7,document.querySelector(".detail-btn-email").href.length) : "not exist";
+          var tele =document.querySelector('.tel>span')!=null ? document.querySelector('.tel>span').textContent : "Null";
+          var adress =document.querySelector('.adr>span')!=null ? document.querySelector('.adr>span').textContent : "Null";
+          var brand =document.querySelector('.org>a')!=null ? document.querySelector('.org>a').textContent.trim() : "Null";
+          var email = document.querySelector('.detail-btn-email')!=null ? document.querySelector(".detail-btn-email").href.substring(7,document.querySelector(".detail-btn-email").href.length) : "Null";
         
           return {
-              tele : tele,
-              email : email,
-              brand : brand
+              Brand : brand,
+              Adress : adress,
+              Tele : tele,
+              Email : email,
           }
         
         });
@@ -55,8 +57,8 @@ const getPagesData=async(array,page)=>{
     var writeStream = fs.createWriteStream("data.txt");
     
     AllBrands.map(item=>{
-     if(item.email!="not exist" || item.email.length<5){
-        writeStream.write(item.email+"\n");
+     if(item.Email!="Null" || item.Email.length<5){
+        writeStream.write(item.Email+"\n");
       }
     })
     
