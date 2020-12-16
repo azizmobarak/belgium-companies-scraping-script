@@ -60,7 +60,7 @@ const getData=()=>{
   
     // pages range
 
-    var end = 5;
+    var end = 10;
     //all list
     const AllLists = [];
 
@@ -79,6 +79,7 @@ var jobs = ['Coiffeurs',"Restaurants","Dentistes","Docteurs","Garages"]
             try{
                 await page.goto("https://www.1307.be/"+jobs[job]+"/"+Cities[city].city+"/"+Cities[city].code+"/FLANDRE-ORIENTALE/result_list/default/"+start);
                 await page.waitForSelector('div>p.fn');
+                console.log("city : "+city,"job : "+job)
             }catch(e){
                 await page.solveRecaptchas();
                 await Promise.all([
