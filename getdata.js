@@ -81,12 +81,6 @@ var jobs = ['Coiffeurs',"Restaurants","Dentistes","Docteurs","Garages"]
                 await page.waitForSelector('div>p.fn');
                 console.log("city : "+city,"job : "+job)
 
-                await page.screenshot({
-                    path: "./images/screenshot"+(job+city)+".jpg",
-                    type: "jpeg",
-                    fullPage: true
-                  });
-
             }catch(e){
                 await page.solveRecaptchas();
                 await Promise.all([
