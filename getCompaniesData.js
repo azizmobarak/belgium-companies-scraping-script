@@ -55,7 +55,7 @@ const getPagesData=async(array,page)=>{
     var writeStream = fs.createWriteStream("data.txt");
     
     AllBrands.map(item=>{
-     if(item.email!="not exist"){
+     if(item.email!="not exist" || item.email.length<5){
         writeStream.write(item.email+"\n");
       }
     })

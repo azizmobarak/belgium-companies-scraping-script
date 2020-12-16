@@ -60,7 +60,7 @@ const getData=()=>{
   
     // pages range
 
-    var end = 10;
+    var end = 5;
     //all list
     const AllLists = [];
 
