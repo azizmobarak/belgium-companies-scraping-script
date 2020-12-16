@@ -3,7 +3,7 @@ const Recaptcha = require('puppeteer-extra-plugin-recaptcha');
 const Agent = require('user-agents');
 const {FormatArray} = require('./FormatDataUrls');
 const {getPagesData} = require('./getCompaniesData');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 
 
  // captcha configuration
@@ -60,7 +60,7 @@ const getData=()=>{
   
     // pages range
 
-    var end = 8;
+    var end = 10;
     //all list
     const AllLists = [];
 
