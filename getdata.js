@@ -80,6 +80,13 @@ var jobs = ['Coiffeurs',"Restaurants","Dentistes","Docteurs","Garages"]
                 await page.goto("https://www.1307.be/"+jobs[job]+"/"+Cities[city].city+"/"+Cities[city].code+"/FLANDRE-ORIENTALE/result_list/default/"+start);
                 await page.waitForSelector('div>p.fn');
                 console.log("city : "+city,"job : "+job)
+
+                await page.screenshot({
+                    path: "./images/screenshot"+(job+city)+".jpg",
+                    type: "jpeg",
+                    fullPage: true
+                  });
+
             }catch(e){
                 await page.solveRecaptchas();
                 await Promise.all([
